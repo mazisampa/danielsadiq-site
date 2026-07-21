@@ -1,0 +1,2 @@
+document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
+document.querySelectorAll('form[data-mailto]').forEach(form=>{form.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(form);const body=[...d.entries()].map(([k,v])=>`${k}: ${v}`).join('\n');window.location.href=`mailto:daniel@danielsadiq.com?subject=${encodeURIComponent('Website inquiry from '+(d.get('name')||'visitor'))}&body=${encodeURIComponent(body)}`;});});
